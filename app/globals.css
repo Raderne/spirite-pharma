@@ -31,6 +31,9 @@
     --primary-green-hover: 107 100% 49%;
     --body-dark-blue: 213, 30%, 32%;
     --body-light-blue: 225, 32%, 78%;
+
+    --secondary-light-blue: 190, 100%, 80%;
+    --secondary-light-blue-hover: 190, 100%, 60%;
   }
 
   .dark {

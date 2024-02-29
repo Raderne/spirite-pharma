@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { MenuSquare } from "lucide-react";
+import { AlignJustify } from "lucide-react";
 
 import { getSanityData } from "../utils/getSanityData";
 import { UrlFor } from "../lib/sanity";
@@ -37,7 +37,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="mb-8 border-b">
+    <header className="mb-8 border-b lg:fixed lg:top-0 bg-white w-full">
       <div className="relative flex gap-10 items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
         <Link href="/">
           {profileData && (
@@ -57,7 +57,7 @@ const Navbar = () => {
             !isMenuOpen ? "text-gray-400" : "text-[#31bbee]"
           } focus:outline-none lg:hidden transition duration-300 ease-in-out`}
         >
-          <MenuSquare size={48} />
+          <AlignJustify size={48} />
         </button>
 
         <nav
