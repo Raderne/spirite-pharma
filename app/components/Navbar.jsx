@@ -20,6 +20,8 @@ const links = [
 ];
 
 const Navbar = () => {
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [profileData, setProfileData] = useState(null);
 
@@ -36,8 +38,28 @@ const Navbar = () => {
     fetchData();
   }, []);
 
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    const visible = prevScrollPos > currentScrollPos;
+    setPrevScrollPos(currentScrollPos);
+    setVisible(visible);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos, visible]);
+
   return (
-    <header className="mb-8 border-b lg:fixed lg:top-0 bg-white w-full">
+    <header
+      className={`mb-8 border-b lg:fixed bg-white w-full z-50 ${
+        visible
+          ? "lg:top-0 transition-all duration-300"
+          : "lg:-top-full transition-all duration-700"
+      }`}
+    >
       <div className="relative flex gap-10 items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
         <Link href="/">
           {profileData && (
