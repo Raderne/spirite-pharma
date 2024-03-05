@@ -105,9 +105,9 @@ const EmblaCarousel = (props) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
-            <div className="embla__slide " key={slide._id}>
-              <div className="embla__slide__number bg-white">
-                <CarouselCard slide={slide} /> {index + 1}
+            <div className="embla__slide " key={index}>
+              <div className="embla__slide__number bg-card-light-blue-background flex-col p-4 md:p-12 justify-between">
+                <CarouselCard slide={slide} />
               </div>
             </div>
           ))}

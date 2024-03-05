@@ -60,6 +60,8 @@ module.exports = {
         "button-secondary-light-blue": "hsl(var(--secondary-light-blue))",
         "button-secondary-light-blue-hover":
           "hsl(var(--secondary-light-blue-hover))",
+
+        "card-light-blue-background": "hsl(var(--carousel-background))",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -36,11 +36,11 @@ const PreferredProducts = () => {
   }, []);
 
   return (
-    <section className="mx-auto max-w-2xl sm:pb-6 lg:max-w-full lg:pb-8 lg:mt-24 bg-body-background-dark-blue lg:mx-0 lg:w-full">
+    <section className="mx-auto max-w-2xl sm:pb-6 lg:max-w-full mt-12 lg:pb-8 lg:pt-12 bg-body-background-dark-blue lg:mx-0 lg:w-full">
       <div className="lg:mx-auto py-10 lg:py-8">
-        <div className="flex flex-col items-center gap-y-12 h-full">
+        <div className="flex flex-col items-center gap-y-8 md:gap-y-12 h-full">
           <h2
-            className={`text-3xl font-semibold text-white text-center lg:text-4xl ${instrumentSerif.className}`}
+            className={`text-3xl font-semibold text-white text-center md:pb-4 lg:text-7xl ${instrumentSerif.className}`}
           >
             Produits préférés des clients
           </h2>
