@@ -57,6 +57,7 @@ module.exports = {
         "button-primary-green-hover": "hsl(var(--primary-green-hover))",
         "body-background-dark-blue": "hsl(var(--body-dark-blue))",
         "body-background-light-blue": "hsl(var(--body-light-blue))",
+        "body-background-lighter-blue": "hsl(var(--body-lighter-blue))",
         "button-secondary-light-blue": "hsl(var(--secondary-light-blue))",
         "button-secondary-light-blue-hover":
           "hsl(var(--secondary-light-blue-hover))",

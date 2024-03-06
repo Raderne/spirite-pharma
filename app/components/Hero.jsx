@@ -5,19 +5,22 @@ import { Button } from "@/components/ui/button";
 import { getSanityData } from "../utils/getSanityData";
 import { MessageCircle } from "lucide-react";
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  preload: false,
-  weight: "400",
-});
+// const instrumentSerif = Instrument_Serif({
+//   subsets: ["latin"],
+//   preload: false,
+//   weight: "400",
+// });
 
-const playfair = Playfair({
-  subsets: ["latin"],
-  preload: false,
-  weight: "400",
-});
+// const playfair = Playfair({
+//   subsets: ["latin"],
+//   preload: false,
+//   weight: "400",
+// });
 
-const Hero = async () => {
+const Hero = async (props) => {
+  const {
+    font: { instrumentSerif, playfair },
+  } = props;
   const query = "*[_type == 'profile'][0]{phone}";
   const data = await getSanityData(query);
 

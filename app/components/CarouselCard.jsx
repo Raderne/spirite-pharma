@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const CarouselCard = (props) => {
   const { slide } = props;
@@ -10,13 +11,13 @@ const CarouselCard = (props) => {
     .join(" ");
   return (
     <>
-      <div className="h-1/2 md:h-2/3 w-full bg-white rounded-xl flex items-center justify-center">
+      <div className="h-1/2 md:h-2/3 w-full bg-white rounded-xl flex items-center justify-center overflow-hidden">
         <Image
-          alt="Carousel Product Image"
-          src={imageUrl}
-          width={300}
-          height={300}
-          className="h-auto w-1/2 md:w-auto object-cover"
+          alt={title}
+          src={imageUrl || ""}
+          width={400}
+          height={400}
+          className="h-full object-cover object-center w-auto"
         />
       </div>
       <div className="text-xl md:text-5xl text-[#333] line-clamp-1">
@@ -32,9 +33,9 @@ const CarouselCard = (props) => {
         </p>
       )}
       <Button className="bg-body-background-dark-blue hover:bg-transparent hover:border hover:border-body-background-dark-blue hover:text-body-background-dark-blue text-lg py-6 w-5/6 md:w-1/3">
-        <a href={`/produits/${slug}`} className="w-full">
+        <Link href={`/products/${slug}`} className="w-full">
           En savoir plus
-        </a>
+        </Link>
       </Button>
     </>
   );

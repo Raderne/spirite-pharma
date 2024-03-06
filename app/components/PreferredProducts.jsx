@@ -2,27 +2,19 @@
 
 import React, { useEffect, useState } from "react";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
-import { Instrument_Serif } from "next/font/google";
 import { getSanityData } from "../utils/getSanityData";
 
 import "../css/embla.css";
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  preload: false,
-  weight: "400",
-});
-
 const OPTIONS = { loop: true };
-const SLIDE_COUNT = 5;
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
-const PreferredProducts = () => {
+const PreferredProducts = (props) => {
+  const { font: instrumentSerif } = props;
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const query = `*[_type == 'product']{
+      const query = `*[_type == 'product'][0...6] {
           title,
           _id,
           description,
@@ -40,7 +32,7 @@ const PreferredProducts = () => {
       <div className="lg:mx-auto py-10 lg:py-8">
         <div className="flex flex-col items-center gap-y-8 md:gap-y-12 h-full">
           <h2
-            className={`text-3xl font-semibold text-white text-center md:pb-4 lg:text-7xl ${instrumentSerif.className}`}
+            className={`text-3xl font-semibold text-white text-center md:pb-4 lg:text-6xl ${instrumentSerif.className}`}
           >
             Produits préférés des clients
           </h2>
