@@ -24,7 +24,9 @@ const Hero = async (props) => {
   const query = "*[_type == 'profile'][0]{phone}";
   const data = await getSanityData(query);
 
-  const phone = data?.phone.split("+", " ", "-").join() || "212661318976";
+  const phone =
+    data?.phone.split(" ").join("").split("+").join("").split("-").join("") ||
+    "212661318976";
 
   return (
     <section className="mx-auto max-w-2xl px-4 sm:pb-6 lg:max-w-7xl lg:pb-8 lg:mt-24">

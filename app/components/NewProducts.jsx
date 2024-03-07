@@ -8,7 +8,6 @@ const NewProducts = async (props) => {
   const {
     font: { instrumentSerif, playfair },
   } = props;
-  const indicesToCheck = [0, 3, 4, 5, 8];
 
   const query = `*[_type == 'product'][0...10] | order(publishedAt asc){
         title,

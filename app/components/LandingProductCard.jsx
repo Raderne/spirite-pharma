@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const indicesToCheck = [0, 3, 4, 5, 8];
+const indicesToCheck = [0, 3, 4, 7];
 
 const LandingProductCard = (props) => {
   const {
@@ -18,7 +18,7 @@ const LandingProductCard = (props) => {
   return (
     <Link
       href={`/products/${generalCategorySlug}/${slug}`}
-      className={`${gridColumn} hover:shadow-lg hover:shadow-slate-300 rounded-2xl overflow-hidden transition-all duration-300 ease-in-out`}
+      className={`${gridColumn} hover:shadow-lg hover:shadow-slate-200 rounded-2xl overflow-hidden transition-all duration-300 ease-in-out`}
     >
       <div className="bg-gray-900 p-4 md:p-6 flex flex-col gap-y-8">
         <div className="">

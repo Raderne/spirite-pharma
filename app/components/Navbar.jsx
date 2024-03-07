@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { AlignJustify } from "lucide-react";
+import { AlignJustify, X } from "lucide-react";
 
 import { getSanityData } from "../utils/getSanityData";
 import { UrlFor } from "../lib/sanity";
@@ -54,7 +54,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`mb-8 border-b lg:fixed bg-white w-full z-50 ${
+      className={`mb-8 border-b lg:fixed bg-white w-full z-50 lg:shadow-lg ${
         visible
           ? "lg:top-0 transition-all duration-300"
           : "lg:-top-full transition-all duration-700"
@@ -79,7 +79,7 @@ const Navbar = () => {
             !isMenuOpen ? "text-gray-400" : "text-[#31bbee]"
           } focus:outline-none lg:hidden transition duration-300 ease-in-out`}
         >
-          <AlignJustify size={48} />
+          {!isMenuOpen ? <AlignJustify size={48} /> : <X size={48} />}
         </button>
 
         <nav

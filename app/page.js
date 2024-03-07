@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import NewProducts from "./components/NewProducts";
 import PreferredProducts from "./components/PreferredProducts";
@@ -20,10 +21,11 @@ const playfair = Playfair({
 
 export default function Home() {
   return (
-    <div className=" pb-6 sm:pb-8 lg:pb-0">
+    <div className="">
       <Hero font={{ instrumentSerif, playfair }} />
       <PreferredProducts font={instrumentSerif} />
       <NewProducts key={"NewProducts"} font={{ instrumentSerif, playfair }} />
+      <Footer font={{ instrumentSerif, playfair }} />
     </div>
   );
 }
