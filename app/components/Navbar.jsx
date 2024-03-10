@@ -13,7 +13,7 @@ import { UrlFor } from "../lib/sanity";
 const links = [
   { href: "/", label: "Home" },
   { href: "/boutique", label: "boutique" },
-  { href: "/complement-alimentaire", label: "Compléments Alimentaires" },
+  { href: "/complements-alimentaires", label: "Compléments Alimentaires" },
   { href: "/dermo-cosmetique", label: "Dermo-Cosmétique" },
   { href: "/news", label: "News" },
   { href: "/propos-de-spf", label: "À propos de SPF" },
@@ -87,7 +87,7 @@ const Navbar = () => {
             isMenuOpen
               ? "max-h-screen overflow-y-auto h-96 bg-white w-full"
               : "max-h-0 overflow-hidden"
-          } flex-col absolute w-full top-full left-0 items-center flex lg:flex-row lg:relative lg:w-auto lg:top-0 lg:justify-start lg:gap-4 transition-all duration-500 ease-in-out lg:h-auto lg:max-h-none lg:overflow-visible`}
+          } z-50 flex-col absolute w-full top-full left-0 items-center flex lg:flex-row lg:relative lg:w-auto lg:top-0 lg:justify-start lg:gap-4 transition-all duration-500 ease-in-out lg:h-auto lg:max-h-none lg:overflow-visible`}
         >
           {links.map(({ href, label }) => (
             <div

@@ -77,7 +77,7 @@ const Footer = async (props) => {
               Participez à la transformation !
             </p>
             <Link
-              href="/products"
+              href="/boutique"
               className={`bg-[#6FFFE9] text-gray-900 py-3 px-6 rounded-xl ${playfair.className} mt-4 text-base md:text-lg hover:bg-transparent hover:text-[#6FFFE9] hover:border hover:border-[#6FFFE9] transition-all duration-100 ease-in-out`}
             >
               Explorez nos produits

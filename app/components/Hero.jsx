@@ -1,21 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Instrument_Serif, Playfair } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { getSanityData } from "../utils/getSanityData";
 import { MessageCircle } from "lucide-react";
-
-// const instrumentSerif = Instrument_Serif({
-//   subsets: ["latin"],
-//   preload: false,
-//   weight: "400",
-// });
-
-// const playfair = Playfair({
-//   subsets: ["latin"],
-//   preload: false,
-//   weight: "400",
-// });
 
 const Hero = async (props) => {
   const {
