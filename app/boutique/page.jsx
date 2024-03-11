@@ -19,7 +19,6 @@ const CategoryPage = async () => {
 
   const data = await getSanityData(query);
 
-  // get categories and put them in an array to remove duplicates and get unique categories
   const categories = data
     .map((product) => product.categories)
     .filter((category) => category);
