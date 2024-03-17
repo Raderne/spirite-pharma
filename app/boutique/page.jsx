@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { getSanityData } from "../utils/getSanityData";
 
+export const dynamic = "force-dynamic";
+
 const CategoryPage = async () => {
   const query = `*[_type == 'product']{
     _id,

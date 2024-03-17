@@ -5,6 +5,8 @@ import Link from "next/link";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import ProductCard from "../components/ProductCard";
 
+export const dynamic = "force-dynamic";
+
 const GeneralCategoryPages = (props) => {
   const {
     params: { generalCategory },
@@ -12,8 +14,8 @@ const GeneralCategoryPages = (props) => {
 
   const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState({
-    title: "",
-    slug: "",
+    title: "Tous les produits",
+    slug: "tous-produits",
   });
   const [products, setProducts] = useState([]);
 
@@ -25,7 +27,6 @@ const GeneralCategoryPages = (props) => {
         }`;
       const data = await getSanityData(query);
       setCategories(data);
-      setCurrentCategory(data[0]);
     };
     fetchCategories();
   }, [generalCategory]);
@@ -33,7 +34,13 @@ const GeneralCategoryPages = (props) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const query = `*[_type == "product" && "${currentCategory.slug}" in categories[] -> slug.current] {
+        const query = `*[_type == "product" && generalCategory -> slug.current == "${generalCategory}" ${
+          currentCategory.slug !== "tous-produits" &&
+          currentCategory.slug !== "" &&
+          currentCategory.slug !== undefined
+            ? `&& "${currentCategory.slug}" in categories[] -> slug.current`
+            : ""
+        }] {
                 _id,
                 title,
                 "image": mainImage.asset -> url,
@@ -49,7 +56,7 @@ const GeneralCategoryPages = (props) => {
     if (currentCategory) {
       fetchProducts();
     }
-  }, [currentCategory]);
+  }, [currentCategory, generalCategory]);
 
   return (
     <section className="md:pt-24 grid grid-cols-1 md:grid-cols-5 md:gap-x-8 md:px-10 pb-6 min-h-screen bg-slate-600 -mt-8 md:mt-0">
@@ -57,16 +64,23 @@ const GeneralCategoryPages = (props) => {
         <div className="rounded-3xl py-12 grid grid-cols-1 px-2 md:px-0 md:flex md:flex-col text-white">
           <div
             className={`block relative ${
-              currentCategory === null
+              currentCategory?.slug === "tous-produits"
                 ? "bg-slate-800 text-gray-100"
                 : "bg-slate-100 text-gray-800"
-            } py-2 px-4 rounded-sm text-2xl mb-2 md:mb-4 group hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-100 overflow-hidden cursor-pointer`}
-            onClick={() => setCurrentCategory(null)}
+            } py-2 px-4 rounded-sm text-2xl md:text-sm lg:text-2xl mb-2 md:mb-4 group hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-100 overflow-hidden cursor-pointer`}
+            onClick={() =>
+              setCurrentCategory({
+                title: "Tous les produits",
+                slug: "tous-produits",
+              })
+            }
           >
             Tous les produits
             <span
               className={`text-3xl ${
-                currentCategory === null ? "text-gray-100" : "text-gray-800"
+                currentCategory?.slug === "tous-produits"
+                  ? "text-gray-100"
+                  : "text-gray-800"
               } absolute right-1 top-1/2 -translate-y-1/2 group-hover:right-2 transition-all duration-300 ease-in-out`}
             >
               <MdOutlineKeyboardDoubleArrowRight />
@@ -80,7 +94,7 @@ const GeneralCategoryPages = (props) => {
                   currentCategory?.slug === category?.slug
                     ? "bg-slate-800 text-gray-100"
                     : "bg-slate-100 text-gray-800"
-                } py-2 px-4 rounded-sm text-2xl mb-2 md:mb-4 group hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-100 overflow-hidden cursor-pointer`}
+                } py-2 px-4 rounded-sm text-2xl md:text-sm lg:text-2xl mb-2 md:mb-4 group hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-100 overflow-hidden cursor-pointer`}
                 onClick={() => setCurrentCategory(category)}
               >
                 {category?.title}
@@ -102,17 +116,17 @@ const GeneralCategoryPages = (props) => {
           <h1 className="text-3xl text-center md:text-start md:text-6xl text-gray-800 font-bold">
             {currentCategory?.title || "Tous les produits"}
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center md:justify-items-stretch ">
             {products.length > 0 && currentCategory
               ? products.map((product) => (
                   <Link
                     key={product._id}
-                    href={`/${generalCategory}/${currentCategory?.slug}/${product.slug}`}
+                    href={`/${generalCategory}/${product.slug}`}
                   >
-                    <ProductCard />
+                    <ProductCard product={product} />
                   </Link>
                 ))
-              : Array.from({ length: 4 }).map((_, index) => (
+              : Array.from({ length: 6 }).map((_, index) => (
                   <SuspendedCard key={index} />
                 ))}
           </div>
