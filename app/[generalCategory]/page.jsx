@@ -140,6 +140,6 @@ export default GeneralCategoryPages;
 
 const SuspendedCard = () => {
   return (
-    <div className="bg-slate-300 rounded-3xl w-full h-96 animate-pulse"></div>
+    <div className="bg-slate-500 rounded-3xl w-full h-96 animate-pulse"></div>
   );
 };
