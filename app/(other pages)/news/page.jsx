@@ -1,9 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Space_Grotesk, Instrument_Serif, Playfair } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { getSanityData } from "@/app/utils/getSanityData";
 import ArticleTile from "@/app/components/ArticleTile";
-import Footer from "@/app/components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],

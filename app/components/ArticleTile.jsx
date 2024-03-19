@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { PortableText } from "@portabletext/react";
 
 const ArticleTile = (props) => {
-  const { article, spaceGrotesk } = props;
+  const { article, spaceGrotesk, showContent = true } = props;
 
   const myPortableTextComponents = {
     marks: {
@@ -53,18 +53,22 @@ const ArticleTile = (props) => {
         {article?.title}
       </Link>
 
-      <div className="line-clamp-3">
-        <PortableText
-          value={article?.content}
-          components={myPortableTextComponents}
-        />
-      </div>
+      {showContent && (
+        <div className="line-clamp-3">
+          <PortableText
+            value={article?.content}
+            components={myPortableTextComponents}
+          />
+        </div>
+      )}
 
-      <Button className="mt-auto">
-        <Link href={`/news/${article?.slug}`} className="w-full text-xl">
-          Lire l&apos;article
-        </Link>
-      </Button>
+      {showContent && (
+        <Button className="mt-auto">
+          <Link href={`/news/${article?.slug}`} className="w-full text-xl">
+            Lire l&apos;article
+          </Link>
+        </Button>
+      )}
     </div>
   );
 };
