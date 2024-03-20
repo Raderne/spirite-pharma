@@ -8,7 +8,7 @@ const SocialLink = (props) => {
   return (
     <Link
       href={href || "#"}
-      className="cursor-pointer flex md:items-center md:justify-center relative gap-x-4 social-popup"
+      className="cursor-pointer flex md:items-center md:justify-center relative gap-x-4 social-popup hover:text-text-primary-blue transform transition duration-300 ease-in-out"
       target="_blank"
       rel="noreferrer noopener"
     >

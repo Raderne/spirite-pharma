@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Space_Grotesk } from "next/font/google";
 import { getSanityData } from "@/app/utils/getSanityData";
 import ArticleTile from "@/app/components/ArticleTile";
+import PagesFooter from "@/app/components/PagesFooter";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -62,6 +63,10 @@ const NewsPage = async () => {
             })}
           </div>
         </div>
+      </div>
+
+      <div className="mx-3 md:mx-auto max-w-2xl px-4 sm:pb-6 lg:max-w-7xl xl:max-w-screen-xl bg-body-background-dark-blue text-white py-8 mb-12 rounded-xl ">
+        <PagesFooter />
       </div>
     </div>
   );

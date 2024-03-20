@@ -4,6 +4,7 @@ import { getSanityData } from "../utils/getSanityData";
 import Link from "next/link";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import ProductCard from "../components/ProductCard";
+import PagesFooter from "../components/PagesFooter";
 
 export const dynamic = "force-dynamic";
 
