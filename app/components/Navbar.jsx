@@ -54,7 +54,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`mb-8 md:mb-0 border-b lg:fixed bg-white w-full z-50 lg:shadow-lg ${
+      className={`mb-8 md:mb-0 border-b lg:fixed bg-white w-full z-[5000] relative lg:shadow-lg ${
         visible
           ? "lg:top-0 transition-all duration-300"
           : "lg:-top-full transition-all duration-700"

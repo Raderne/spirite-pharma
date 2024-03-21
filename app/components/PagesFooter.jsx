@@ -1,17 +1,11 @@
 import React from "react";
-import { Instrument_Serif, Playfair } from "next/font/google";
+import { Playfair } from "next/font/google";
 import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import Link from "next/link";
 import SocialLink from "@/app/components/SocialLink";
 import { getSanityData } from "@/app/utils/getSanityData";
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  preload: false,
-  weight: "400",
-});
 
 const playfair = Playfair({
   subsets: ["latin"],
