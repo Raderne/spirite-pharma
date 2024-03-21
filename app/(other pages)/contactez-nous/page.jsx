@@ -109,7 +109,7 @@ const ContactUsPage = () => {
             </div>
 
             <div className="pt-8">
-              <p className="capitalize">Connectez-vous avec nous:</p>
+              <p className="capitalize">Connectez avec nous:</p>
               <div className="flex mt-2">
                 <Link
                   href={contactData?.facebook || ""}
