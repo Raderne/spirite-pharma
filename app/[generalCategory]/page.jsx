@@ -4,7 +4,6 @@ import { getSanityData } from "../utils/getSanityData";
 import Link from "next/link";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import ProductCard from "../components/ProductCard";
-import PagesFooter from "../components/PagesFooter";
 
 export const dynamic = "force-dynamic";
 
@@ -120,10 +119,7 @@ const GeneralCategoryPages = (props) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center md:justify-items-stretch ">
             {products.length > 0 && currentCategory
               ? products.map((product) => (
-                  <Link
-                    key={product._id}
-                    href={`/${generalCategory}/${product.slug}`}
-                  >
+                  <Link key={product._id} href={`/product/${product.slug}`}>
                     <ProductCard product={product} />
                   </Link>
                 ))

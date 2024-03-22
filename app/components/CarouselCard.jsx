@@ -33,7 +33,7 @@ const CarouselCard = (props) => {
         </p>
       )}
       <Button className="bg-body-background-dark-blue hover:bg-transparent hover:border hover:border-body-background-dark-blue hover:text-body-background-dark-blue text-lg py-6 w-5/6 md:w-1/3">
-        <Link href={`/products/${slug}`} className="w-full">
+        <Link href={`/product/${slug}`} className="w-full">
           En savoir plus
         </Link>
       </Button>

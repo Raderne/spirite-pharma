@@ -139,7 +139,7 @@ const ContactUsPage = () => {
                 <input
                   name="name"
                   type="text"
-                  placeholder="Nom"
+                  placeholder="Nom et prénom"
                   required
                   className="w-full outline-none border-2 border-[#fafafa] bg-transparent py-3 px-5 text-white font-medium tracking-[0.5px] rounded-md placeholder:text-white placeholder-opacity-50"
                 />
