@@ -22,9 +22,17 @@ const CategoryPage = async () => {
   const data = await getSanityData(query);
 
   const categories = data
-    .map((product) => product.categories)
+    ?.map((product) => product.categories)
     .filter((category) => category);
-  const uniqueCategories = [...new Set(categories.flat())];
+
+  const uniqueCategories = categories?.reduce((acc, category) => {
+    category.forEach((cat) => {
+      if (!acc.find((c) => c.categorySlug === cat.categorySlug)) {
+        acc.push(cat);
+      }
+    });
+    return acc;
+  });
 
   return (
     <div className="bg-white md:mt-20 grid grid-cols-1 md:grid-cols-5">
