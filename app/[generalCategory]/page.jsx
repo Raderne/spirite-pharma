@@ -21,7 +21,7 @@ const GeneralCategoryPages = (props) => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const query = `*[_type == 'category' && generalCategory -> slug.current == "${generalCategory}"] | order(title desc) {
+      const query = `*[_type == 'category' && generalCategory -> slug.current == "${generalCategory}"] | order(title asc) {
             title,
             "slug": slug.current
         }`;

@@ -5,7 +5,7 @@ import { getSanityData } from "../utils/getSanityData";
 
 export const dynamic = "force-dynamic";
 
-const CategoryPage = async () => {
+const BoutiquePage = async () => {
   const query = `*[_type == 'product']{
     _id,
     title,
@@ -95,4 +95,4 @@ const CategoryPage = async () => {
   );
 };
 
-export default CategoryPage;
+export default BoutiquePage;
