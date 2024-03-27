@@ -42,7 +42,6 @@ const ArticleTile = (props) => {
           alt={article?.title}
           width={500}
           height={300}
-          layout="responsive"
         />
       </div>
 

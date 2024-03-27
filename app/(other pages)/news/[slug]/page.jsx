@@ -70,7 +70,6 @@ const ArticlePage = async (props) => {
             alt={article?.title}
             width={500}
             height={300}
-            layout="responsive"
           />
         </div>
         <p className="text-center text-[#1bbcbe] font-bold mt-4">

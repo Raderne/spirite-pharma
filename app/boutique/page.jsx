@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getSanityData } from "../utils/getSanityData";
+import Loading from "../loading";
 
 export const dynamic = "force-dynamic";
 
@@ -60,36 +61,38 @@ const BoutiquePage = async () => {
           </h2>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-x-2 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-          {data?.map((product) => (
-            <Link
-              className="group relative bg-card-light-blue-background p-2 rounded-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-100 overflow-hidden"
-              key={product._id}
-              href={`/product/${product.slug}`}
-            >
-              <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
-                <Image
-                  src={product?.image}
-                  alt="product image"
-                  className="w-full h-full object-center object-cover lg:w-full lg:h-full"
-                  width={300}
-                  height={300}
-                />
-              </div>
-
-              <div className="mt-4 flex justify-between">
-                <div>
-                  <h3 className="text-md font-bold line-clamp-1 text-gray-700">
-                    {product.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">
-                    {product.generalCategory}
-                  </p>
+        <Suspense fallback={<Loading />}>
+          <div className="mt-6 grid grid-cols-1 gap-x-2 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+            {data?.map((product) => (
+              <Link
+                className="group relative bg-card-light-blue-background p-2 rounded-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-100 overflow-hidden"
+                key={product._id}
+                href={`/product/${product.slug}`}
+              >
+                <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+                  <Image
+                    src={product?.image}
+                    alt="product image"
+                    className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                    width={300}
+                    height={300}
+                  />
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-md font-bold line-clamp-1 text-gray-700">
+                      {product.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">
+                      {product.generalCategory}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Suspense>
       </div>
     </div>
   );

@@ -8,7 +8,8 @@ import Image from "next/image";
 import { AlignJustify, X } from "lucide-react";
 
 import { getSanityData } from "../utils/getSanityData";
-import { UrlFor } from "../lib/sanity";
+
+import Placeholder from "@/app/images/placeholder.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -62,15 +63,13 @@ const Navbar = () => {
     >
       <div className="relative flex gap-10 items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
         <Link href="/">
-          {profileData && (
-            <Image
-              src={UrlFor(profileData?.logo).url()}
-              alt={profileData?.name}
-              width={500}
-              height={500}
-              className="cursor-pointer w-44 my-1 md:my-3 lg:w-32"
-            ></Image>
-          )}
+          <Image
+            src={Placeholder}
+            alt={profileData?.name}
+            width={500}
+            height={500}
+            className="cursor-pointer w-44 my-1 md:my-3 lg:w-32"
+          />
         </Link>
 
         <button

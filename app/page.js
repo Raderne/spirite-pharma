@@ -21,11 +21,11 @@ const playfair = Playfair({
 
 export default function Home() {
   return (
-    <div className="">
+    <>
       <Hero font={{ instrumentSerif, playfair }} />
       <PreferredProducts font={instrumentSerif} />
       <NewProducts key={"NewProducts"} font={{ instrumentSerif, playfair }} />
       <Footer font={{ instrumentSerif, playfair }} />
-    </div>
+    </>
   );
 }

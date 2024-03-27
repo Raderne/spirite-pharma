@@ -28,12 +28,9 @@ const LandingProductCard = (props) => {
           >
             {title}
           </h2>
-          <Link
-            href={`/${generalCategorySlug}`}
-            className="text-base md:tracking-wide md:text-lg text-[#6FFFE9] hover:text-text-primary-blue"
-          >
+          <p className="text-base md:tracking-wide md:text-lg text-[#6FFFE9] hover:text-text-primary-blue">
             {generalCategory}
-          </Link>
+          </p>
         </div>
         <div className="relative w-full h-80 md:h-96 bg-white rounded-2xl overflow-hidden grid place-content-center">
           <Image

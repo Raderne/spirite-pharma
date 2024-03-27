@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Space_Grotesk } from "next/font/google";
 import PagesFooter from "@/app/components/PagesFooter";
 import { GoGoal } from "react-icons/go";
