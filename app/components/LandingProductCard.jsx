@@ -38,7 +38,7 @@ const LandingProductCard = (props) => {
             alt={title || "product image"}
             width={400}
             height={400}
-            className="rounded-2xl object-cover object-center w-auto h-auto"
+            className="rounded-2xl object-cover object-center"
           />
         </div>
       </div>

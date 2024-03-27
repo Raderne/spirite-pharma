@@ -21,12 +21,12 @@ const Hero = async (props) => {
         <div className="lg:mt-4">
           <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight text-gray-900 lg:text-[10rem] lg:leading-none xl:text-[11rem] xl:leading-none flex flex-col items-center select-none">
             <span className={`block ${instrumentSerif.className}`}>
-              SPIRITE PHARMA
+              SPIRIT PHARMA
             </span>
             <span
               className={`block ${playfair.className} text-body-background-dark-blue lg:leading-[0.5] lg:text-[11rem] xl:text-[12rem] tracking-widest `}
             >
-              Cosmetics
+              FRANCE
             </span>
           </h1>
         </div>

@@ -82,7 +82,7 @@ const ProductPage = (props) => {
               alt={product?.title || "product image"}
               width={500}
               height={500}
-              className="object-cover rounded-md w-full h-full"
+              className="object-cover rounded-md w-full h-auto"
             />
           </div>
           <div
