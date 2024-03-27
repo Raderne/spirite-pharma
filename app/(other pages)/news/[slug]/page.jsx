@@ -70,6 +70,7 @@ const ArticlePage = async (props) => {
             alt={article?.title || "article image"}
             width={500}
             height={300}
+            className="object-cover object-center w-full h-full"
           />
         </div>
         <p className="text-center text-[#1bbcbe] font-bold mt-4">

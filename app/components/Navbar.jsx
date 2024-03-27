@@ -51,7 +51,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [prevScrollPos, visible]);
+  }, [prevScrollPos, visible, handleScroll]);
 
   return (
     <header
@@ -68,6 +68,7 @@ const Navbar = () => {
             alt={profileData?.name || "SPF Logo"}
             width={500}
             height={500}
+            priority
             className="cursor-pointer w-44 my-1 md:my-3 lg:w-32"
           />
         </Link>

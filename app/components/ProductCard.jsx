@@ -17,7 +17,7 @@ const ProductCard = (props) => {
           alt={title || "product image"}
           width={300}
           height={300}
-          className="rounded-2xl overflow-hidden object-cover "
+          className="rounded-2xl overflow-hidden object-cover object-center"
         />
       </div>
       <h3

@@ -42,6 +42,7 @@ const ArticleTile = (props) => {
           alt={article?.title || "article image"}
           width={500}
           height={300}
+          className="object-cover object-center"
         />
       </div>
 
