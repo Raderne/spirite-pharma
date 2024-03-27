@@ -65,7 +65,7 @@ const Navbar = () => {
         <Link href="/">
           <Image
             src={Placeholder}
-            alt={profileData?.name}
+            alt={profileData?.name || "SPF Logo"}
             width={500}
             height={500}
             className="cursor-pointer w-44 my-1 md:my-3 lg:w-32"

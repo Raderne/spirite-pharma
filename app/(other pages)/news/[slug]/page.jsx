@@ -67,7 +67,7 @@ const ArticlePage = async (props) => {
         <div className="w-full mx-auto max-w-4xl min-h-52 overflow-hidden rounded-xl shadow-md bg-white flex items-center justify-center">
           <Image
             src={article?.image}
-            alt={article?.title}
+            alt={article?.title || "article image"}
             width={500}
             height={300}
           />

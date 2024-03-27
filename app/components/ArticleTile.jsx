@@ -39,7 +39,7 @@ const ArticleTile = (props) => {
       <div className="w-full min-h-56 overflow-hidden rounded-md border border-gray-400 bg-white flex items-center justify-center">
         <Image
           src={article?.image}
-          alt={article?.title}
+          alt={article?.title || "article image"}
           width={500}
           height={300}
         />

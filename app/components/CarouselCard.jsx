@@ -14,7 +14,7 @@ const CarouselCard = (props) => {
       <div className="h-1/2 md:h-2/3 w-full bg-white rounded-xl flex items-center justify-center overflow-hidden">
         <Image
           alt={title}
-          src={imageUrl || ""}
+          src={imageUrl || "Carousel Image"}
           width={400}
           height={400}
           className="h-full object-cover object-center w-auto"

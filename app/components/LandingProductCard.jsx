@@ -35,7 +35,7 @@ const LandingProductCard = (props) => {
         <div className="relative w-full h-80 md:h-96 bg-white rounded-2xl overflow-hidden grid place-content-center">
           <Image
             src={imageUrl || ""}
-            alt={title}
+            alt={title || "product image"}
             width={400}
             height={400}
             className="rounded-2xl object-cover object-center h-full"

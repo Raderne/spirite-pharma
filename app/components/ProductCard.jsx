@@ -14,7 +14,7 @@ const ProductCard = (props) => {
       <div className="rounded-2xl bg-white overflow-hidden h-3/4 flex items-center max-w-[90%]">
         <Image
           src={image}
-          alt={title}
+          alt={title || "product image"}
           width={300}
           height={300}
           className="rounded-2xl overflow-hidden object-cover "
