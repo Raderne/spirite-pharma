@@ -12,6 +12,8 @@ const poppins = Poppins({
   subsets: ["latin"],
   preload: false,
   weight: ["400", "500", "600", "700"],
+  style: "normal",
+  display: "swap",
 });
 
 const ContactUsPage = () => {

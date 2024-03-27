@@ -79,7 +79,7 @@ const CategoryPage = (props) => {
             isOpen
               ? "left-4 w-4/5 transition-all duration-500 ease-in-out"
               : "-left-full transition-all duration-500 ease-in-out"
-          } md:sticky md:top-4`}
+          } md:sticky md:top-4 w-[90%] md:w-auto`}
         >
           <h3 className="text-xl font-bold text-body-background-dark-blue flex justify-between items-center">
             Catégories de produits
@@ -119,7 +119,7 @@ const CategoryPage = (props) => {
       </div>
 
       <div className="max-w-2xl px-4 py-6 sm:px-6 lg:max-w-7xl lg:px-8 col-span-4">
-        <div className="">
+        <div className="mt-6 md:mt-0">
           <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-gray-900 mb-2">
             {categories?.find((category) => category.slug === slug)?.title}
           </h2>

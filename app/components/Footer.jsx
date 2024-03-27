@@ -31,8 +31,8 @@ const Footer = async (props) => {
     .join("");
 
   return (
-    <section className="text-white mx-auto max-w-2xl pb-16 lg:max-w-full lg:pt-12 lg:w-full min-h-screen bg-body-background-dark-blue">
-      <div className="lg:mx-auto py-10 lg:py-8 lg:max-w-screen-xl px-5 flex flex-col gap-y-4 md:gap-y-16">
+    <section className="text-white mx-auto max-w-2xl pb-14 lg:max-w-full lg:pt-12 lg:w-full min-h-screen bg-body-background-dark-blue">
+      <div className="lg:mx-auto pt-10 lg:py-8 lg:max-w-screen-xl px-5 flex flex-col gap-y-4 md:gap-y-16">
         <div className="flex flex-col items-center gap-y-4 md:gap-y-6">
           <h1
             className={`text-3xl lg:text-7xl md:tracking-wide  ${instrumentSerif.className}`}

@@ -3,7 +3,7 @@ import LoadingSkeleton from "./components/LoadingSkeleton";
 
 export default async function Loading() {
   return (
-    <main className="min-h-screen flex justify-center items-center">
+    <main className="min-h-[50vh] md:min-h-screen w-full flex justify-center items-center mx-auto ml-8">
       <LoadingSkeleton />
     </main>
   );
