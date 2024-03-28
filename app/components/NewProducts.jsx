@@ -9,7 +9,7 @@ const NewProducts = async (props) => {
     font: { instrumentSerif, playfair },
   } = props;
 
-  const query = `*[_type == 'product'][0...10] | order(_updatedAt desc){
+  const query = `*[_type == 'product'][0...8] | order(_updatedAt desc){
         title,
         _id,
         "generalCategory": generalCategory->title,
