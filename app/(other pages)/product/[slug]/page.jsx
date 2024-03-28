@@ -24,6 +24,47 @@ const roboto = Roboto({
   preload: false,
 });
 
+const components = {
+  marks: {
+    link: ({ children, value }) => {
+      const rel = !value.href.startsWith("/")
+        ? "noreferrer noopener"
+        : undefined;
+      return (
+        <a
+          href={value.href}
+          rel={rel}
+          className="text-button-primary font-bold"
+        >
+          {children}
+        </a>
+      );
+    },
+  },
+  list: {
+    // Ex. 1: customizing common list types
+    bullet: ({ children }) => <ul className="mt-6 ml-8">{children}</ul>,
+    number: ({ children }) => <ol className="mt-6 ml-8">{children}</ol>,
+
+    // Ex. 2: rendering custom lists
+    checkmarks: ({ children }) => (
+      <ol className="m-auto text-lg">{children}</ol>
+    ),
+  },
+  listItem: {
+    // Ex. 1: customizing common list types
+    bullet: ({ children }) => (
+      <li style={{ listStyleType: "disclosure-closed" }}>{children}</li>
+    ),
+    number: ({ children }) => (
+      <li style={{ listStyleType: "decimal" }}>{children}</li>
+    ),
+
+    // Ex. 2: rendering custom list items
+    checkmarks: ({ children }) => <li>✅ {children}</li>,
+  },
+};
+
 const ProductPage = (props) => {
   const {
     params: { slug },
@@ -112,7 +153,10 @@ const ProductPage = (props) => {
             </div>
             {product?.description && (
               <div className="mb-3 md:mb-5">
-                <PortableText value={product?.description} />
+                <PortableText
+                  value={product?.description}
+                  components={components}
+                />
               </div>
             )}
             {product?.composition && (
@@ -123,7 +167,7 @@ const ProductPage = (props) => {
             )}
             {product?.utilisation && (
               <ProductInfoDrawer
-                title="Utilisation"
+                title="Mode d'emploi"
                 content={product?.utilisation}
               />
             )}
@@ -147,7 +191,7 @@ const ProductPage = (props) => {
             )}
             {product?.precautions && (
               <ProductInfoDrawer
-                title="Précautions"
+                title="Précautions d'emploi / Avertissements"
                 content={product?.precautions}
               />
             )}

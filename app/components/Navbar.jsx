@@ -51,7 +51,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [prevScrollPos, visible, handleScroll]);
+  }, [prevScrollPos, visible]);
 
   return (
     <header
@@ -98,6 +98,7 @@ const Navbar = () => {
                 <Link
                   href={href}
                   className="text-[#31bbee] font-bold text-2xl hover:text-gray-500 transition duration-300 ease-in-out lg:text-base"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {label}
                 </Link>
@@ -105,6 +106,7 @@ const Navbar = () => {
                 <Link
                   href={href}
                   className="text-gray-500 font-bold text-2xl hover:text-[#31bbee] transition duration-300 ease-in-out  lg:text-base"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {label}
                 </Link>

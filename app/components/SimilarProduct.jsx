@@ -15,7 +15,7 @@ const SimilarProduct = (props) => {
 
   useEffect(() => {
     const fetchSimilarProducts = async () => {
-      const query = `*[_type == 'product' && generalCategory -> slug.current == "${generalCategorySlug}" && slug.current != "${productSlug}"][0..3] {
+      const query = `*[_type == 'product' && generalCategory -> slug.current == "${generalCategorySlug}" && slug.current != "${productSlug}"][0..3] | order(_updatedAt desc) {
             title,
             "image": mainImage.asset -> url,
             "slug": slug.current,
