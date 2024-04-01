@@ -23,7 +23,8 @@ const GeneralCategoryPages = (props) => {
     const fetchCategories = async () => {
       const query = `*[_type == 'category' && generalCategory -> slug.current == "${generalCategory}"] | order(title asc) {
             title,
-            "slug": slug.current
+            "slug": slug.current,
+            description
         }`;
       const data = await getSanityData(query);
       setCategories(data);
@@ -116,6 +117,9 @@ const GeneralCategoryPages = (props) => {
           <h1 className="text-3xl text-center md:text-start md:text-6xl text-gray-800 font-bold">
             {currentCategory?.title || "Tous les produits"}
           </h1>
+          <p className="text-gray-500 max-w-screen-sm md:max-w-screen-lg text-sm md:text-base -mt-5">
+            {currentCategory?.description && currentCategory?.description}
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center md:justify-items-stretch ">
             {products.length > 0 && currentCategory
               ? products.map((product) => (

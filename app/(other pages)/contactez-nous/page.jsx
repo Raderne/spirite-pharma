@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Poppins } from "next/font/google";
 import { getSanityData } from "@/app/utils/getSanityData";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FaLocationDot, FaFacebookF } from "react-icons/fa6";
 import { MdEmail, MdWhatsapp } from "react-icons/md";
 import { IoMdCall } from "react-icons/io";
+import Loading from "@/app/loading";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -75,115 +76,117 @@ const ContactUsPage = () => {
   };
 
   return (
-    <div className="bg-slate-200 min-h-screen">
-      <div className="mx-auto max-w-2xl sm:pb-6 lg:max-w-7xl xl:max-w-screen-xl overflow-hidden min-h-screen lg:pb-8 lg:pt-24 flex items-center justify-center">
-        <div className="w-full bg-white rounded-md shadow-xl z-50 overflow-hidden grid grid-cols-1 md:grid-cols-2">
-          <div
-            className={`${poppins.className} py-9 px-8 z-10 overflow-hidden relative max-w-[90%]`}
-          >
-            <h3 className="capitalize text-text-primary-blue font-medium text-2xl leading-none mb-3">
-              prenez contact avec Nous
-            </h3>
-            <p className="text-[#333] mb-8">
-              Vous avez des questions, des commentaires ou des suggestions? Nous
-              serions ravis de vous entendre. Remplissez le formulaire
-              ci-dessous et nous vous répondrons dans les plus brefs délais.
-            </p>
-            <div>
-              <div className="flex items-center text-[#555] my-3 text-[0.95rem]">
-                <FaLocationDot className="text-[#1ABC9C] text-xl mr-3" />
-                <p className="text-lg">
-                  {contactData?.address || "Adresse non disponible"}
-                </p>
-              </div>
-              <div className="flex items-center text-[#555] my-3 text-[0.95rem]">
-                <IoMdCall className="text-[#1ABC9C] text-xl mr-3" />
-                <p className="text-lg">
-                  {contactData?.phone || "Téléphone non disponible"}
-                </p>
-              </div>
-              <div className="flex items-center text-[#555] my-3 text-[0.95rem]">
-                <MdEmail className="text-[#1ABC9C] text-xl mr-3" />
-                <p className="text-lg">
-                  {contactData?.email || "Email non disponible"}
-                </p>
-              </div>
-            </div>
-
-            <div className="pt-8">
-              <p className="capitalize">Connectez avec nous:</p>
-              <div className="flex mt-2">
-                <Link
-                  href={contactData?.facebook || ""}
-                  className="w-9 h-9 rounded text-center flex justify-center items-center mr-2 text-white hover:bg-[#1ABC9C] hover:scale-105 bg-text-primary-blue transition-all duration-300 ease-in-out"
-                >
-                  <FaFacebookF size={24} />
-                </Link>
-                <Link
-                  href={`https://wa.me/${phoneNum || "0661318976"}`}
-                  className="w-9 h-9 rounded text-center flex justify-center items-center mr-2 text-white hover:bg-[#1ABC9C] hover:scale-105 bg-text-primary-blue transition-all duration-300 ease-in-out"
-                >
-                  <MdWhatsapp size={24} />
-                </Link>
-              </div>
-            </div>
-          </div>
-          {/* form */}
-          <div className="bg-text-primary-blue relative before:content-[''] before:absolute before:w-7 before:h-7 before:bg-text-primary-blue before:rotate-45 before:top-[-13px] before:left-[initial] before:right-16 md:before:top-[50px] md:before:left-[-13px]">
-            <form
-              className={`${poppins.className} py-9 px-8 z-10 overflow-hidden relative`}
-              onSubmit={submitForm}
+    <Suspense fallback={<Loading />}>
+      <div className="bg-slate-200 min-h-screen">
+        <div className="mx-auto max-w-2xl sm:pb-6 lg:max-w-7xl xl:max-w-screen-xl overflow-hidden min-h-screen lg:pb-8 lg:pt-24 flex items-center justify-center">
+          <div className="w-full bg-white rounded-md shadow-xl z-50 overflow-hidden grid grid-cols-1 md:grid-cols-2">
+            <div
+              className={`${poppins.className} py-9 px-8 z-10 overflow-hidden relative max-w-[90%]`}
             >
-              <h3 className="text-white font-medium text-2xl leading-none mb-3">
-                Contactez-nous
+              <h3 className="capitalize text-text-primary-blue font-medium text-2xl leading-none mb-3">
+                prenez contact avec Nous
               </h3>
-              <div className="input-container my-4 relative">
-                <input
-                  name="name"
-                  type="text"
-                  placeholder="Nom et prénom"
-                  required
-                  className="w-full outline-none border-2 border-[#fafafa] bg-transparent py-3 px-5 text-white font-medium tracking-[0.5px] rounded-md placeholder:text-white placeholder-opacity-50"
-                />
+              <p className="text-[#333] mb-8">
+                Vous avez des questions, des commentaires ou des suggestions?
+                Nous serions ravis de vous entendre. Remplissez le formulaire
+                ci-dessous et nous vous répondrons dans les plus brefs délais.
+              </p>
+              <div>
+                <div className="flex items-center text-[#555] my-3 text-[0.95rem]">
+                  <FaLocationDot className="text-[#1ABC9C] text-xl mr-3" />
+                  <p className="text-lg">
+                    {contactData?.address || "Adresse non disponible"}
+                  </p>
+                </div>
+                <div className="flex items-center text-[#555] my-3 text-[0.95rem]">
+                  <IoMdCall className="text-[#1ABC9C] text-xl mr-3" />
+                  <p className="text-lg">
+                    {contactData?.phone || "Téléphone non disponible"}
+                  </p>
+                </div>
+                <div className="flex items-center text-[#555] my-3 text-[0.95rem]">
+                  <MdEmail className="text-[#1ABC9C] text-xl mr-3" />
+                  <p className="text-lg">
+                    {contactData?.email || "Email non disponible"}
+                  </p>
+                </div>
               </div>
-              <div className="input-container my-4 relative">
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  required
-                  className="w-full outline-none border-2 border-[#fafafa] bg-transparent py-3 px-5 text-white font-medium tracking-[0.5px] rounded-md placeholder:text-white placeholder-opacity-50"
-                />
+
+              <div className="pt-8">
+                <p className="capitalize">Connectez avec nous:</p>
+                <div className="flex mt-2">
+                  <Link
+                    href={contactData?.facebook || ""}
+                    className="w-9 h-9 rounded text-center flex justify-center items-center mr-2 text-white hover:bg-[#1ABC9C] hover:scale-105 bg-text-primary-blue transition-all duration-300 ease-in-out"
+                  >
+                    <FaFacebookF size={24} />
+                  </Link>
+                  <Link
+                    href={`https://wa.me/${phoneNum || "0661318976"}`}
+                    className="w-9 h-9 rounded text-center flex justify-center items-center mr-2 text-white hover:bg-[#1ABC9C] hover:scale-105 bg-text-primary-blue transition-all duration-300 ease-in-out"
+                  >
+                    <MdWhatsapp size={24} />
+                  </Link>
+                </div>
               </div>
-              <div className="input-container my-4 relative">
-                <input
-                  name="phone"
-                  type="tel"
-                  placeholder="Numéro de téléphone"
-                  required
-                  className="w-full outline-none border-2 border-[#fafafa] bg-transparent py-3 px-5 text-white font-medium tracking-[0.5px] rounded-md placeholder:text-white placeholder-opacity-50"
-                />
-              </div>
-              <div className="my-4 relative">
-                <textarea
-                  name="message"
-                  placeholder="Commentaire ou message..."
-                  required
-                  className="w-full outline-none border-2 border-[#fafafa] bg-transparent py-3 px-5 text-white font-medium tracking-[0.5px] rounded-md min-h-36 resize-none overflow-y-auto placeholder:text-white placeholder-opacity-50"
-                ></textarea>
-              </div>
-              {error && <div className="text-red-500">{error}</div>}
-              <button
-                type="submit"
-                className="w-full bg-white text-text-primary-blue py-3 rounded-md font-medium tracking-[0.5px] transition-all duration-300 hover:bg-transparent hover:text-white hover:outline hover:outline-2 hover:outline-[#fafafa] mt-4"
+            </div>
+            {/* form */}
+            <div className="bg-text-primary-blue relative before:content-[''] before:absolute before:w-7 before:h-7 before:bg-text-primary-blue before:rotate-45 before:top-[-13px] before:left-[initial] before:right-16 md:before:top-[50px] md:before:left-[-13px]">
+              <form
+                className={`${poppins.className} py-9 px-8 z-10 overflow-hidden relative`}
+                onSubmit={submitForm}
               >
-                {isLoading ? "Envoi en cours..." : "Envoyer"}
-              </button>
-            </form>
+                <h3 className="text-white font-medium text-2xl leading-none mb-3">
+                  Contactez-nous
+                </h3>
+                <div className="input-container my-4 relative">
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Nom et prénom"
+                    required
+                    className="w-full outline-none border-2 border-[#fafafa] bg-transparent py-3 px-5 text-white font-medium tracking-[0.5px] rounded-md placeholder:text-white placeholder-opacity-50"
+                  />
+                </div>
+                <div className="input-container my-4 relative">
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    required
+                    className="w-full outline-none border-2 border-[#fafafa] bg-transparent py-3 px-5 text-white font-medium tracking-[0.5px] rounded-md placeholder:text-white placeholder-opacity-50"
+                  />
+                </div>
+                <div className="input-container my-4 relative">
+                  <input
+                    name="phone"
+                    type="tel"
+                    placeholder="Numéro de téléphone"
+                    required
+                    className="w-full outline-none border-2 border-[#fafafa] bg-transparent py-3 px-5 text-white font-medium tracking-[0.5px] rounded-md placeholder:text-white placeholder-opacity-50"
+                  />
+                </div>
+                <div className="my-4 relative">
+                  <textarea
+                    name="message"
+                    placeholder="Commentaire ou message..."
+                    required
+                    className="w-full outline-none border-2 border-[#fafafa] bg-transparent py-3 px-5 text-white font-medium tracking-[0.5px] rounded-md min-h-36 resize-none overflow-y-auto placeholder:text-white placeholder-opacity-50"
+                  ></textarea>
+                </div>
+                {error && <div className="text-red-500">{error}</div>}
+                <button
+                  type="submit"
+                  className="w-full bg-white text-text-primary-blue py-3 rounded-md font-medium tracking-[0.5px] transition-all duration-300 hover:bg-transparent hover:text-white hover:outline hover:outline-2 hover:outline-[#fafafa] mt-4"
+                >
+                  {isLoading ? "Envoi en cours..." : "Envoyer"}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 
