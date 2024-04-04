@@ -82,8 +82,15 @@ const FooterClient = () => {
         </h2>
       </Link>
 
+      <Link
+        href="/cookies"
+        className="mt-4 text-xs md:text-xl hover:opacity-80 transition-all duration-300 ease-in-out"
+      >
+        Politique de confidentialité
+      </Link>
+
       <p
-        className={`text-xs md:text-xl text-gray-400 mt-4 ${playfair.className}`}
+        className={`text-xs md:text-xl text-gray-400 ${playfair.className}`}
       >
         © Copyright {year || ""} Spirit Pharma France. All Rights Reserved.
       </p>

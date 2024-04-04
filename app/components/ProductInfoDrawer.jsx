@@ -48,7 +48,7 @@ const components = {
 };
 
 const ProductInfoDrawer = (props) => {
-  const { title, content } = props;
+  const { title, content, text } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -70,7 +70,14 @@ const ProductInfoDrawer = (props) => {
         }`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <PortableText value={content} components={components} />
+        {text ? (
+          <p
+            className="text-gray-600"
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
+        ) : (
+          <PortableText value={content} components={components} />
+        )}
       </div>
     </div>
   );
