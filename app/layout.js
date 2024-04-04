@@ -10,6 +10,16 @@ export const metadata = {
   title: "Spirite Pharma France",
   description:
     "Spirite Pharma France est une entreprise de distribution de produits pharmaceutiques.",
+  openGraph: {
+    title: "Spirite Pharma France",
+    description:
+      "Spirite Pharma France est une entreprise de distribution de produits pharmaceutiques.",
+    type: "website",
+    url: "https://spirite-pharma-france.vercel.app",
+  },
+  favicon: "/favicon.ico",
+  colorScheme: "auto",
+  keywords: ["pharmaceutical", "distribution", "pharmacy", "health", "medicine"],
 };
 
 export default function RootLayout({ children }) {
