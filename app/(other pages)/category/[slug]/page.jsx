@@ -141,11 +141,11 @@ const CategoryPage = (props) => {
               key={product._id}
               href={`/product/${product.slug}`}
             >
-              <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+              <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-50 group-hover:opacity-75 lg:h-80">
                 <Image
                   src={product?.image}
                   alt="product image"
-                  className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  className="w-full h-full object-center object-contain lg:w-full lg:h-full"
                   width={300}
                   height={300}
                 />

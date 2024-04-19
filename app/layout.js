@@ -18,8 +18,13 @@ export const metadata = {
     url: "https://spirite-pharma-france.vercel.app",
   },
   favicon: "/favicon.ico",
-  colorScheme: "auto",
-  keywords: ["pharmaceutical", "distribution", "pharmacy", "health", "medicine"],
+  keywords: [
+    "pharmaceutical",
+    "distribution",
+    "pharmacy",
+    "health",
+    "medicine",
+  ],
 };
 
 export default function RootLayout({ children }) {

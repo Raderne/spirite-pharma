@@ -32,13 +32,13 @@ const LandingProductCard = (props) => {
             {generalCategory}
           </p>
         </div>
-        <div className="relative w-full h-80 md:h-96 bg-white rounded-2xl overflow-hidden grid place-content-center">
+        <div className="relative w-full h-80 md:h-96 bg-white rounded-2xl overflow-hidden flex justify-center items-center">
           <Image
             src={imageUrl || ""}
             alt={title || "product image"}
             width={400}
-            height={400}
-            className="rounded-2xl object-cover object-center"
+            height={300}
+            className="rounded-2xl object-contain object-center h-full bg-blend-overlay"
           />
         </div>
       </div>
