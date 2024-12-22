@@ -22,13 +22,13 @@ const Footer = async (props) => {
 
   const data = await getSanityData(query);
   const { facebook, email, phone } = data;
-  let phoneNum = phone
-    .split(" ")
-    .join("")
-    .split("+")
-    .join("")
-    .split("-")
-    .join("");
+  // let phoneNum = phone
+  //   .split(" ")
+  //   .join("")
+  //   .split("+")
+  //   .join("")
+  //   .split("-")
+  //   .join("");
 
   return (
     <section className="text-white mx-auto max-w-2xl pb-14 lg:max-w-full lg:pt-12 lg:w-full min-h-screen bg-body-background-dark-blue">
@@ -96,18 +96,13 @@ const Footer = async (props) => {
                 href={"mailto:" + email}
               />
               <SocialLink
-                Icon={FaWhatsapp}
-                content={phone}
-                href={`https://wa.me/${phoneNum}`}
-              />
-              <SocialLink
                 Icon={FaFacebookF}
                 content={facebook}
                 href={facebook}
               />
             </div>
 
-            <Link
+            {/* <Link
               href={`https://wa.me/${phoneNum}`}
               className="flex gap-x-4 items-center mt-6 hover:text-green-400 transition-all duration-300 ease-in-out hover:scale-90"
             >
@@ -115,7 +110,7 @@ const Footer = async (props) => {
               <h2 className="lg:text-4xl text-2xl">
                 Passez vos commandes sur WhatsApp : 06 61 31 89 76
               </h2>
-            </Link>
+            </Link> */}
 
             <Link
               href="/cookies"
