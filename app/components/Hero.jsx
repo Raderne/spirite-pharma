@@ -34,7 +34,7 @@ const Hero = async (props) => {
 							type="video/mp4"
 						/>
 					</video>
-					<div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center gap-y-5 rounded-2xl">
+					<div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center gap-y-10 rounded-2xl">
 						<div className="">
 							<h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight lg:text-[10rem] lg:leading-none xl:text-[11rem] xl:leading-none flex flex-col items-center select-none">
 								<span
@@ -49,13 +49,13 @@ const Hero = async (props) => {
 								</span>
 							</h1>
 						</div>
-						{/* <div className="px-4 md:px-0 md:w-2/3">
-							<p className="text-base font-medium text-justify text-gray-500 lg:text-xl lg:mt-4 lg:leading-9 lg:text-center">
+						<div className="px-4 md:px-0 md:w-2/3">
+							<p className="text-base font-medium text-justify text-gray-100 lg:text-xl lg:mt-4 lg:leading-9 lg:text-center">
 								Spirit Pharma France a pour vocation le développement de
 								compléments alimentaires et des produits dermo-cosmétiques de
 								soin ou d’hygiène pour le visage et le corps. 
 							</p>
-						</div> */}
+						</div>
 
 						<div className="w-full px-4 sm:px-0 flex items-center justify-center sm:w-2/3">
 							<Button className="md:w-1/2 sm:w-auto bg-body-background-light-blue hover:bg-button-secondary-light-blue-hover text-gray-900 text-lg sm:text-xl font-semibold px-4 py-8 rounded-2xl">
