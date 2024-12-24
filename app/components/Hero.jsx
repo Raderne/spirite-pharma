@@ -20,14 +20,14 @@ const Hero = async (props) => {
 					type="video/mp4"
 				/>
 			</video>
-			<section className="mx-auto max-w-2xl px-4 sm:pb-6 lg:max-w-7xl lg:pb-8 ">
-				<div className="my-4 flex gap-y-12 h-full min-h-screen relative">
+			<section className="mx-auto max-w-2xl px-4 sm:pb-6 lg:max-w-7xl lg:pb-8">
+				<div className="h-full relative p-5 bg-black rounded-xl">
 					<video
 						autoPlay
 						loop
 						muted
 						contextMenu="false"
-						className="w-full h-full object-cover"
+						className="w-full h-full object-cover rounded-xl"
 					>
 						<source
 							src="/spiritpharmafrance-video.mp4"
