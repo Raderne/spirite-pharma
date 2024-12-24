@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getSanityData } from "../utils/getSanityData";
 import Loading from "../loading";
+import CategoriesSection from "../components/CategoriesSection";
 
 export const dynamic = "force-dynamic";
 
@@ -37,22 +38,8 @@ const BoutiquePage = async () => {
 
 	return (
 		<div className="bg-white md:mt-20 grid grid-cols-1 md:grid-cols-5">
-			<div className="col-span-1 relative p-2 pt-6 h-[85vh]">
-				<div className="flex flex-col gap-y-2 bg-card-light-blue-background p-4 rounded-xl h-full overflow-y-auto">
-					<h3 className="text-xl font-bold text-body-background-dark-blue">
-						Catégories de produits
-					</h3>
-					{uniqueCategories?.length !== 0 &&
-						uniqueCategories?.map((category) => (
-							<Link
-								href={`/category/${category.categorySlug}`}
-								key={category.categorySlug}
-								className="text-gray-900 text-lg font-semibold hover:text-button-primary hover:animate-pulse"
-							>
-								{category.categoryTitle}
-							</Link>
-						))}
-				</div>
+			<div className="col-span-1 relative p-2 pt-6 md:h-[85vh]">
+				<CategoriesSection categories={uniqueCategories} />
 			</div>
 
 			<div className="max-w-2xl px-4 py-6 sm:px-6 lg:max-w-7xl lg:px-8 col-span-4">

@@ -21,7 +21,7 @@ const Hero = async (props) => {
 				/>
 			</video>
 			<section className="mx-auto max-w-2xl px-4 sm:pb-6 lg:max-w-7xl lg:pb-8">
-				<div className="h-full relative sm:p-5 sm:bg-black rounded-xl max-sm:min-h-screen">
+				<div className="h-full relative sm:p-5 sm:bg-black rounded-xl max-sm:min-h-[60vh]">
 					<video
 						autoPlay
 						loop
@@ -34,7 +34,7 @@ const Hero = async (props) => {
 							type="video/mp4"
 						/>
 					</video>
-					<div className="absolute inset-0 sm:bg-black bg-opacity-75 flex flex-col items-center justify-center gap-y-10 rounded-2xl">
+					<div className="absolute inset-0 sm:bg-black/75 flex flex-col items-center justify-center gap-y-10 rounded-2xl">
 						<div className="">
 							<h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight lg:text-[10rem] lg:leading-none xl:text-[11rem] xl:leading-none flex flex-col items-center select-none">
 								<span
