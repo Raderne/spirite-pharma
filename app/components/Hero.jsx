@@ -34,7 +34,7 @@ const Hero = async (props) => {
 							type="video/mp4"
 						/>
 					</video>
-					<div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center rounded-2xl">
+					<div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center gap-y-5 rounded-2xl">
 						<div className="">
 							<h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight lg:text-[10rem] lg:leading-none xl:text-[11rem] xl:leading-none flex flex-col items-center select-none">
 								<span
