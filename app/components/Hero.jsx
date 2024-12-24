@@ -7,13 +7,13 @@ const Hero = async (props) => {
 	} = props;
 
 	return (
-		<div className="relative w-full h-full overflow-hidden">
+		<div className="relative w-full h-full overflow-hidden max-sm:bg-black/85">
 			<video
 				autoPlay
 				loop
 				muted
 				contextMenu="false"
-				className="w-full h-full object-cover absolute inset-0"
+				className="w-full h-full object-cover absolute inset-0 max-sm:hidden"
 			>
 				<source
 					src="/spiritpharmafrance-video.mp4"
@@ -21,20 +21,20 @@ const Hero = async (props) => {
 				/>
 			</video>
 			<section className="mx-auto max-w-2xl px-4 sm:pb-6 lg:max-w-7xl lg:pb-8">
-				<div className="h-full relative p-5 bg-black rounded-xl">
+				<div className="h-full relative sm:p-5 sm:bg-black rounded-xl max-sm:min-h-screen">
 					<video
 						autoPlay
 						loop
 						muted
 						contextMenu="false"
-						className="w-full h-full object-cover rounded-xl"
+						className="w-full h-full object-cover rounded-xl max-sm:hidden"
 					>
 						<source
 							src="/spiritpharmafrance-video.mp4"
 							type="video/mp4"
 						/>
 					</video>
-					<div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center gap-y-10 rounded-2xl">
+					<div className="absolute inset-0 sm:bg-black bg-opacity-75 flex flex-col items-center justify-center gap-y-10 rounded-2xl">
 						<div className="">
 							<h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight lg:text-[10rem] lg:leading-none xl:text-[11rem] xl:leading-none flex flex-col items-center select-none">
 								<span
