@@ -60,7 +60,7 @@ const GeneralCategoryPages = (props) => {
 	}, [currentCategory, generalCategory]);
 
 	return (
-		<section className="md:pt-24 grid grid-cols-1 md:grid-cols-5 md:gap-x-4 md:px-5 max-sm:gap-y-4 pb-6 min-h-screen bg-slate-600 -mt-8 md:mt-0">
+		<section className="md:pt-24 grid grid-cols-1 md:grid-cols-5 md:gap-x-4 md:px-5 max-sm:gap-y-4pn pb-6 min-h-screen bg-slate-600 -mt-8 md:mt-0">
 			<div className="h-full max-h-[85dvh] overflow-y-auto col-span-1 md:col-span-1 bg-slate-100 rounded-3xl p-2">
 				<div className="rounded-3xl py-12 grid grid-cols-1 px-2 md:px-0 md:flex md:flex-col text-white">
 					<div

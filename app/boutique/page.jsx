@@ -68,15 +68,13 @@ const BoutiquePage = async () => {
 										/>
 									</div>
 
-									<div className="mt-4 flex justify-between">
-										<div>
-											<h3 className="text-md font-bold line-clamp-1 text-gray-700">
-												{product.title}
-											</h3>
-											<p className="mt-1 text-sm text-gray-500">
-												{product.generalCategory}
-											</p>
-										</div>
+									<div className="mt-4 text-center flex items-center flex-col justify-between">
+										<h3 className="text-md font-bold line-clamp-1 text-gray-700">
+											{product.title}
+										</h3>
+										<p className="mt-1 text-sm text-gray-500">
+											{product.generalCategory}
+										</p>
 									</div>
 								</Link>
 							))

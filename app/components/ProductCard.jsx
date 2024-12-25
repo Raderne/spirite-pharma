@@ -27,7 +27,7 @@ const ProductCard = (props) => {
 			>
 				{title}
 			</h3> */}
-			<div className="self-start flex flex-col w-3/4 mx-auto">
+			<div className="self-start flex flex-col items-center text-center w-3/4 mx-auto">
 				<h3 className="text-md font-bold text-gray-700">{title}</h3>
 				<p className="text-sm text-gray-500">{generalCategory}</p>
 			</div>
