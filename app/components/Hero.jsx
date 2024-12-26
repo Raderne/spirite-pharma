@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Logo from "@/app/images/placeholder.png";
+import Image from "next/image";
 
 const Hero = async (props) => {
 	const {
@@ -34,9 +36,9 @@ const Hero = async (props) => {
 							type="video/mp4"
 						/>
 					</video>
-					<div className="absolute inset-0 sm:bg-black/75 flex flex-col items-center justify-center gap-y-10 rounded-2xl">
-						<div className="">
-							<h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight lg:text-[10rem] lg:leading-none xl:text-[11rem] xl:leading-none flex flex-col items-center select-none">
+					<div className="absolute bg-blend-screen inset-0 sm:bg-black/65 flex flex-col items-center justify-center gap-y-10 rounded-2xl">
+						<div className="w-full flex flex-col items-center justify-center max-w-2xl sm:w-2/3">
+							{/* <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight lg:text-[10rem] lg:leading-none xl:text-[11rem] xl:leading-none flex flex-col items-center select-none">
 								<span
 									className={`block ${instrumentSerif.className} text-white`}
 								>
@@ -47,7 +49,14 @@ const Hero = async (props) => {
 								>
 									FRANCE
 								</span>
-							</h1>
+							</h1> */}
+							<Image
+								src={Logo}
+								alt="Spirit Pharma France"
+								width={500}
+								height={500}
+								className="object-contain w-full h-full"
+							/>
 						</div>
 						<div className="px-4 md:px-0 md:w-2/3">
 							<p className="text-base font-medium text-justify text-gray-100 lg:text-xl lg:mt-4 lg:leading-9 lg:text-center">
