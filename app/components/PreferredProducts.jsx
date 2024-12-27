@@ -17,13 +17,13 @@ const PreferredProducts = (props) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			setLoading(true);
-			const query = `*[_type == 'product'][0...6] {
-          title,
-          _id,
-          description,
-          "slug": slug.current,
-          "imageUrl": mainImage.asset -> url,
-      }`;
+			const query = `*[_type == 'product' && slug.current == "magnesium-citrate" || slug.current == "magnesium-glycinate" || slug.current == "spirit-pharma-vitamine-b12" || slug.current == "spirit-pharma-melatonine" || slug.current == "spirit-vitamines-d3-k2" || slug.current == "spirit-vitamine-d3"] {
+						title,
+						_id,
+						description,
+						"slug": slug.current,
+						"imageUrl": mainImage.asset -> url,
+				}`;
 			try {
 				const data = await getSanityData(query);
 				setData(data);
