@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getSanityData } from "../../../utils/getSanityData";
+import CategoriesSection from "@/app/components/CategoriesSection";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,7 @@ const CategoryPage = (props) => {
 		params: { slug },
 	} = props;
 
-	const [isOpen, setIsOpen] = useState(false);
+	// const [isOpen, setIsOpen] = useState(false);
 	const [categories, setCategories] = useState([]);
 	const [productsData, setProductsData] = useState([]);
 
@@ -20,10 +21,10 @@ const CategoryPage = (props) => {
 		const fetchCategories = async () => {
 			const categoriesQuery = `*[_type == 'category'] | order(title asc) {
             "generalCategory": generalCategory -> title,
-              "generalCategorySlug": generalCategory -> slug.current,
-              title,
-              "slug": slug.current,
-              description
+              	"generalCategorySlug": generalCategory -> slug.current,
+              	"categoryTitle": title,
+            	"categorySlug": slug.current,
+              	description
           }`;
 			const categoriesData = await getSanityData(categoriesQuery);
 			setCategories(categoriesData);
@@ -54,7 +55,7 @@ const CategoryPage = (props) => {
 	return (
 		<div className="bg-white md:mt-20 grid grid-cols-1 md:grid-cols-5">
 			<div className="col-span-1 relative p-2 pt-6 md:h-[85vh]">
-				<button
+				{/* <button
 					className="md:hidden absolute top-4 right-4 p-2 bg-white rounded-md flex shadow-md"
 					onClick={() => setIsOpen(!isOpen)}
 				>
@@ -104,7 +105,7 @@ const CategoryPage = (props) => {
 
 					{categories?.map((category) => (
 						<Link
-							href={`/category/${category?.slug}`}
+							href={`/category/${category.categorySlug}?selectedCategory=${category.categorySlug}`}
 							key={category?.slug}
 							className={`font-semibold hover:text-text-primary-blue hover:animate-pulse ${
 								category?.slug === slug
@@ -115,18 +116,25 @@ const CategoryPage = (props) => {
 							{category?.title}
 						</Link>
 					))}
-				</div>
+				</div> */}
+				<CategoriesSection
+					categories={categories}
+					slug={slug}
+				/>
 			</div>
 
 			<div className="max-w-2xl px-4 py-6 sm:px-6 lg:max-w-7xl lg:px-8 col-span-4">
 				<div className="mt-6 md:mt-0">
 					<h2 className="text-2xl md:text-4xl font-bold tracking-tight text-gray-900 mb-2">
-						{categories?.find((category) => category.slug === slug)?.title}
+						{
+							categories?.find((category) => category.categorySlug === slug)
+								?.categoryTitle
+						}
 					</h2>
 
 					<p className="text-gray-500 max-w-screen-sm md:max-w-screen-lg text-sm md:text-base">
 						{
-							categories?.find((category) => category.slug === slug)
+							categories?.find((category) => category.categorySlug === slug)
 								?.description
 						}
 					</p>

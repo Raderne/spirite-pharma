@@ -1,10 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
-const CategoriesSection = ({ categories }) => {
+const CategoriesSection = ({ categories, slug = "" }) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const searchParams = useSearchParams();
+	const selectedCategory = searchParams.get("selectedCategory");
+	const categoryRefs = useRef({});
+
+	useEffect(() => {
+		if (selectedCategory) {
+			const interval = setInterval(() => {
+				const categoryElement = categoryRefs.current[selectedCategory];
+				if (categoryElement) {
+					categoryElement.scrollIntoView({
+						behavior: "smooth",
+						block: "center",
+					});
+					clearInterval(interval); // Stop checking once found
+				}
+			}, 100); // Check every 100ms
+			return () => clearInterval(interval);
+		}
+	}, [selectedCategory]);
 
 	return (
 		<>
@@ -41,9 +61,14 @@ const CategoriesSection = ({ categories }) => {
 				{categories?.length !== 0 &&
 					categories?.map((category) => (
 						<Link
-							href={`/category/${category.categorySlug}`}
+							href={`/category/${category.categorySlug}?selectedCategory=${category.categorySlug}`}
 							key={category.categorySlug}
-							className="text-gray-900 text-lg font-semibold hover:text-button-primary hover:animate-pulse"
+							ref={(el) => (categoryRefs.current[category.categorySlug] = el)}
+							className={`font-semibold hover:text-text-primary-blue hover:animate-pulse ${
+								category?.categorySlug === slug
+									? "text-text-primary-blue text-2xl"
+									: "text-gray-900 text-lg"
+							}`}
 						>
 							{category.categoryTitle}
 						</Link>
